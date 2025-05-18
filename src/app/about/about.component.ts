@@ -1,7 +1,7 @@
 import { Component, ElementRef, Renderer2, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { trigger, transition, style, animate, query, stagger, state } from '@angular/animations';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 
 interface Skill {
   name: string;
@@ -42,16 +42,6 @@ interface Particle {
         animate('600ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
       ])
     ]),
-    trigger('fadeInStagger', [
-      transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0, transform: 'translateY(30px)' }),
-          stagger('100ms', [
-            animate('500ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
-          ])
-        ], { optional: true })
-      ])
-    ]),
     trigger('cardAnimation', [
       state('default', style({
         transform: 'scale(1)',
@@ -62,12 +52,6 @@ interface Particle {
         boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
       })),
       transition('default <=> hovered', animate('200ms ease-in-out'))
-    ]),
-    trigger('skillBar', [
-      state('shown', style({ width: '{{level}}%' }), { params: { level: 0 } }),
-      state('hidden', style({ width: '0%' })),
-      transition('hidden => shown', animate('600ms ease-out')),
-      transition('shown => hidden', animate('300ms ease-in'))
     ])
   ]
 })
