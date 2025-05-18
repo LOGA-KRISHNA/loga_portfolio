@@ -1,0 +1,86 @@
+body{
+  color: white;
+}
+
+.project-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.image-container {
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.image-container img {
+  width: 70%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.02);
+}
+
+.project-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+
+
+.btn {
+  margin-top: 30px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.title {
+  font-size: 3.5rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .project-section {
+    padding: 20px 10px;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  .project-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+}

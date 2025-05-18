@@ -1,0 +1,13 @@
+<section class="project-section flex flex-col items-center justify-center">
+  <h1 class="text-center text-6xl p-4 title">Projects</h1>
+  <div *ngFor="let project of projects" class="p-5">
+    <div class="image-container flex items-center justify-center">
+      <img [src]="project.image" [alt]="project.title" />
+    </div>
+    <div class="project-content">
+      <h2>{{ project.title }}</h2>
+      <a [href]="project.link" target="_blank" class="btn bg-blue-950 hover:bg-white/30 hover:backdrop-blur-sm hover:border hover:border-white/70">Visit Page →</a>
+    </div>
+  </div>
+</section>
+

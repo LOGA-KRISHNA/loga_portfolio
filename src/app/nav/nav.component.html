@@ -1,0 +1,44 @@
+<header class="w-full transition-all duration-300 rounded-2xl">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="hidden md:block md:text-white md:p-5">Asia/Chennai</div>
+
+    <!-- Fixed nav: bottom on mobile, top on desktop -->
+    <nav class="fixed bottom-4 md:top-4 left-1/2 -translate-x-1/2 z-50 w-max pointer-events-none">
+      <div class="flex gap-4 bg-black/20 backdrop-blur-md rounded-3xl px-4 py-2 max-w-screen-md shadow-md pointer-events-auto">
+        <a
+          href="#home"
+          class="hover:rounded-2xl flex gap-2 text-gray-300 rounded-sm hover:bg-white/30 hover:backdrop-blur-sm hover:border hover:border-white/70 p-1 transition-colors duration-200"
+        >
+          <mat-icon aria-hidden="false" fontIcon="home"></mat-icon>
+          <div class="hidden sm:block">Home</div>
+        </a>
+
+        <a
+          href="#about"
+          class="hover:rounded-2xl flex gap-2 text-gray-300 rounded-sm hover:bg-white/30 hover:backdrop-blur-sm hover:border hover:border-white/70 p-1 transition-colors duration-200"
+        >
+          <mat-icon aria-hidden="false" fontIcon="person"></mat-icon>
+          <div class="hidden sm:block">About</div>
+        </a>
+
+        <a
+          href="#activity"
+          class="hover:rounded-2xl flex gap-2 text-gray-300 rounded-sm hover:bg-white/30 hover:backdrop-blur-sm hover:border hover:border-white/70 p-1 transition-colors duration-200"
+        >
+          <mat-icon aria-hidden="false" fontIcon="widgets"></mat-icon>
+          <div class="hidden sm:block">Activity</div>
+        </a>
+
+        <a
+          href="#summit"
+          class="hover:rounded-2xl flex gap-2 text-gray-300 rounded-sm hover:bg-white/30 hover:backdrop-blur-sm hover:border hover:border-white/70 p-1 transition-colors duration-200"
+        >
+          <mat-icon aria-hidden="false" fontIcon="info"></mat-icon>
+          <div class="hidden sm:block">Contact</div>
+        </a>
+      </div>
+    </nav>
+
+    <div class="hidden md:block md:text-white md:p-5">{{ans()}}</div>
+  </div>
+</header>
