@@ -13,8 +13,4 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-
- 
-
-
 }
