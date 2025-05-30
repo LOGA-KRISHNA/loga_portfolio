@@ -1,7 +1,6 @@
 import { Component, ElementRef, Renderer2, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { trigger, transition, style, animate, state } from '@angular/animations';
 
 interface Skill {
   name: string;
@@ -35,25 +34,6 @@ interface Particle {
   imports: [CommonModule, MatIconModule],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
-  animations: [
-    trigger('slideIn', [
-      transition(':enter', [
-        style({ transform: 'translateY(50px)', opacity: 0 }),
-        animate('600ms ease-out', style({ transform: 'translateY(0)', opacity: 1 }))
-      ])
-    ]),
-    trigger('cardAnimation', [
-      state('default', style({
-        transform: 'scale(1)',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-      })),
-      state('hovered', style({
-        transform: 'scale(1.05)',
-        boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
-      })),
-      transition('default <=> hovered', animate('200ms ease-in-out'))
-    ])
-  ]
 })
 export class AboutComponent implements OnInit {
   isHeaderVisible = false;
@@ -79,14 +59,14 @@ export class AboutComponent implements OnInit {
       role: 'Web Development Intern',
       company: 'Infosys Springboard',
       description: 'Internship 5.0 -Tourist Management System.Collaborated remotely with Team members and peers to implement scalable solutions.[ Angular, SpringBoot]',
-      isActive: false
+      isActive: true
     },
     {
       period: '2021 - 2023',
       role: 'Full Stack Developer',
       company: 'Digital Solutions Ltd',
       description: 'Developed and maintained multiple web applications using modern technologies',
-      isActive: false
+      isActive: true
     }
   ];
 
@@ -107,10 +87,8 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.initializeParticles();
-    setTimeout(() => {
-      this.isHeaderVisible = true;
-      this.triggerVisibilitySequence();
-    }, 500);
+    this.isHeaderVisible = true;
+    this.triggerVisibilitySequence();
   }
 
   private initializeParticles() {
@@ -124,31 +102,27 @@ export class AboutComponent implements OnInit {
   }
 
   private triggerVisibilitySequence() {
-    setTimeout(() => this.isBioVisible = true, 500);
-    setTimeout(() => this.isSkillsVisible = true, 1000);
-    setTimeout(() => this.isExperienceVisible = true, 1500);
-    setTimeout(() => this.isEducationVisible = true, 2000);
+    this.isBioVisible = true;
+    this.isSkillsVisible = true;
+    this.isExperienceVisible = true;
+    this.isEducationVisible = true;
   }
 
   onCardHover(cardType: string) {
     const card = this.elementRef.nativeElement.querySelector(`.${cardType}-card`);
     this.renderer.addClass(card, 'hovered');
-    
+
     if (cardType === 'skills') {
-      this.skills.forEach((skill, index) => {
-        setTimeout(() => {
-          skill['animationState'] = 'shown';
-        }, index * 100);
+      this.skills.forEach(skill => {
+        skill['animationState'] = 'shown';
       });
-    } else if (cardType === 'experience') {
-      this.animateTimeline();
     }
   }
 
   onCardLeave(cardType: string) {
     const card = this.elementRef.nativeElement.querySelector(`.${cardType}-card`);
     this.renderer.removeClass(card, 'hovered');
-    
+
     if (cardType === 'skills') {
       this.skills.forEach(skill => {
         skill['animationState'] = 'hidden';
@@ -159,17 +133,7 @@ export class AboutComponent implements OnInit {
   private animateSkillBars() {
     const skillBars = this.elementRef.nativeElement.querySelectorAll('.skill-bar');
     skillBars.forEach((bar: HTMLElement, index: number) => {
-      setTimeout(() => {
-        this.renderer.setStyle(bar, 'width', `${this.skills[index].level}%`);
-      }, index * 100);
-    });
-  }
-
-  private animateTimeline() {
-    this.experiences.forEach((exp, index) => {
-      setTimeout(() => {
-        exp.isActive = true;
-      }, index * 300);
+      this.renderer.setStyle(bar, 'width', `${this.skills[index].level}%`);
     });
   }
 }

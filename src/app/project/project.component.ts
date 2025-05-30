@@ -18,7 +18,7 @@ export class ProjectComponent {
     {
       title: 'Portfolio using Angular',
       image: 'portfolio.png',
-      link: 'https://logaportfolio.netlify.app/'
+      link: 'https://logakrishna.netlify.app/'
     },
     {
       title: 'College Syposium website',

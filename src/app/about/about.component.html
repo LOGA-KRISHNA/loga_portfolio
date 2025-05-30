@@ -11,17 +11,15 @@
       <!-- Skills Card -->
       <div class="card skills-card" 
            [class.visible]="isSkillsVisible"
-           [@cardAnimation]="'default'"
            (mouseenter)="onCardHover('skills')" 
            (mouseleave)="onCardLeave('skills')">
         <h2><mat-icon>code</mat-icon> Skills & Expertise</h2>
         <div class="skills-container">
           <div *ngFor="let skill of skills" 
-               class="skill-item"
-               [@fadeInStagger]>
+               class="skill-item">
             <span class="skill-name">{{skill.name}}</span>
             <div class="skill-bar" 
-                 [@skillBar]="{value: skill.animationState || 'hidden', params: {level: skill.level}}">
+                 [style.width]="skill.level + '%'">
             </div>
           </div>
         </div>
@@ -30,15 +28,13 @@
       <!-- Experience Card -->
       <div class="card experience-card" 
            [class.visible]="isExperienceVisible"
-           [@cardAnimation]="'default'"
            (mouseenter)="onCardHover('experience')" 
            (mouseleave)="onCardLeave('experience')">
         <h2><mat-icon>work</mat-icon> Experience</h2>
         <div class="timeline">
           <div *ngFor="let exp of experiences" 
                class="timeline-item"
-               [class.active]="exp.isActive"
-               [@slideIn]>
+               [class.active]="exp.isActive">
             <div class="timeline-date">{{exp.period}}</div>
             <div class="timeline-content">
               <h3>{{exp.role}}</h3>
@@ -52,14 +48,12 @@
       <!-- Education Card -->
       <div class="card education-card" 
            [class.visible]="isEducationVisible"
-           [@cardAnimation]="'default'"
            (mouseenter)="onCardHover('education')" 
            (mouseleave)="onCardLeave('education')">
         <h2><mat-icon>school</mat-icon> Education</h2>
         <div class="education-list">
           <div *ngFor="let edu of education" 
-               class="education-item"
-               [@slideIn]>
+               class="education-item">
             <h3>{{edu.degree}}</h3>
             <p>{{edu.institution}}</p>
             <p class="year">{{edu.year}}</p>
